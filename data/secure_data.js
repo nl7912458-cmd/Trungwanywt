@@ -3,10 +3,6 @@
 const KHO_DU_LIEU = {
     // 1. LINK GOOGLE DRIVE (Mã hóa Base64)
     driveLinks: {
-        
-        "tai_lieu_1": "aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xbEtaWjVOMnZIaU9RUi1BUExaX2lwT0tsRDNRU0F4Vjgvdmlldz91c3A9ZHJpdmVzZGs=",
-        "tai_lieu_2": "aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xUjFFRnpQclRJSTF5cmdWRXNXb2NMQmZHT3l0dzlNdW8vdmlldz91c3A9ZHJpdmVzZGs=",
-
         // === Các phần tách nhỏ của "100 Từ vựng HSK" cho giao diện đa nhiệm (task-switcher) ===
         // ĐỔI 4 link base64 dưới đây thành link Drive thật của từng phần (dùng hàm btoa("link that") trong console trình duyệt để mã hoá)
         "hsk_p1": "aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xbEtaWjVOMnZIaU9RUi1BUExaX2lwT0tsRDNRU0F4Vjgvdmlldz91c3A9ZHJpdmVzZGs=",
