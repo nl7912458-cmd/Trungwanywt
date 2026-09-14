@@ -1,0 +1,200 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #fbfbfd;
+    color: #1d1d1f;
+    margin: 0;
+    padding: 0;
+}
+.hero { text-align: center; padding: 50px 20px; background: #fff; border-bottom: 1px solid #e5e5ea; }
+.logo { width: 150px; height: 150px; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 20px; object-fit: cover; }
+.btn-tiktok { display: inline-block; background: #000; color: #fff; padding: 12px 24px; border-radius: 20px; text-decoration: none; font-weight: bold; margin-top: 15px; }
+.docs-section { max-width: 900px; margin: 50px auto; padding: 0 20px; }
+.docs-section h2 { text-align: center; margin-bottom: 30px; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.card { background: #fff; padding: 30px; border-radius: 20px; box-shadow: 0 8px 24px rgba(0,0,0,0.06); text-align: center; }
+.btn-download { background: #0071e3; color: #fff; border: none; padding: 12px; border-radius: 20px; width: 100%; font-weight: bold; cursor: pointer; margin-top: 15px; }
+.premium-section { background: #f5f5f7; padding: 40px 20px; border-radius: 20px; }
+.badge { background: #ff3b30; color: #fff; padding: 5px 10px; border-radius: 10px; font-size: 12px; float: right; }
+.btn-premium { background: #d2d2d7; color: #86868b; border: none; padding: 12px; width: 100%; border-radius: 20px; margin-top: 15px; }
+
+/* Modal */
+.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); justify-content: center; align-items: center; z-index: 100; }
+.modal-content { background: #fff; padding: 30px; border-radius: 20px; width: 90%; max-width: 400px; text-align: center; position: relative; }
+.close-btn { position: absolute; top: 15px; right: 15px; font-size: 24px; border: none; background: none; cursor: pointer; }
+.btn-shopee { display: inline-block; background: #ee4d2d; color: #fff; text-decoration: none; padding: 12px 20px; border-radius: 10px; font-weight: bold; margin: 15px 0; }
+
+/* Browser Guard - chặn webview Zalo/Facebook/Messenger/TikTok... */
+#browser-guard-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(6px);
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+#browser-guard-overlay .bg-box {
+    background: #fff;
+    border-radius: 20px;
+    padding: 28px 24px;
+    max-width: 380px;
+    width: 100%;
+    text-align: left;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+}
+#browser-guard-overlay h3 {
+    margin: 0 0 10px;
+    text-align: center;
+    color: #1d1d1f;
+}
+#browser-guard-overlay p {
+    color: #444;
+    line-height: 1.5;
+    font-size: 14px;
+}
+#browser-guard-overlay .bg-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 14px 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #1d1d1f;
+}
+#browser-guard-overlay .bg-step-num {
+    flex: 0 0 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #0071e3;
+    color: #fff;
+    font-weight: bold;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#browser-guard-overlay .bg-copy-btn,
+#browser-guard-overlay .bg-open-btn {
+    display: block;
+    width: 100%;
+    border: none;
+    padding: 14px;
+    border-radius: 14px;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+#browser-guard-overlay .bg-copy-btn {
+    background: #0071e3;
+    color: #fff;
+}
+#browser-guard-overlay .bg-open-btn {
+    background: #f5f5f7;
+    color: #1d1d1f;
+    border: 1px solid #d2d2d7;
+}
+#browser-guard-overlay .bg-note {
+    text-align: center;
+    font-size: 13px;
+    color: #34c759;
+    min-height: 16px;
+    margin: 10px 0 0;
+    word-break: break-all;
+}
+
+/* ===== Giao diện Đa Nhiệm (Task Switcher kiểu Android/iOS) ===== */
+.task-switcher {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(20,20,22,0.92);
+    backdrop-filter: blur(10px);
+    z-index: 200;
+    flex-direction: column;
+}
+.task-switcher.open { display: flex; }
+.ts-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px 8px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    flex: 0 0 auto;
+}
+.ts-close {
+    background: rgba(255,255,255,0.12);
+    border: none;
+    color: #fff;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+}
+.ts-track {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    padding: 20px calc(50% - 130px);
+    -webkit-overflow-scrolling: touch;
+}
+.ts-track::-webkit-scrollbar { display: none; }
+.ts-card {
+    flex: 0 0 260px;
+    height: 70%;
+    max-height: 420px;
+    scroll-snap-align: center;
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.35);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 22px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transform: scale(0.86);
+    opacity: 0.55;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    color: #fff;
+}
+.ts-card.active {
+    transform: scale(1);
+    opacity: 1;
+}
+.ts-card-icon {
+    width: 46px; height: 46px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.25);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: auto;
+}
+.ts-card h4 { margin: 0 0 6px; font-size: 19px; }
+.ts-card p { margin: 0; font-size: 13px; opacity: 0.9; }
+.ts-hint {
+    text-align: center;
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+    padding: 14px 10px 26px;
+    flex: 0 0 auto;
+}
+
+/* Chia lưới 3 cột x 2 hàng cho 6 đáp án A B C D E F */
+.options-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 15px; }
+.btn-option { background: #f5f5f7; border: 1px solid #d2d2d7; padding: 12px; border-radius: 10px; cursor: pointer; font-size: 18px; font-weight: bold; width: 100%; transition: 0.2s; }
+.btn-option:hover { background: #0071e3; color: white; border-color: #0071e3; }
+.error-msg { color: #ff3b30; display: none; margin-top: 15px; font-weight: bold; }
